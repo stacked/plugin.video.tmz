@@ -5,7 +5,7 @@ __plugin__ = 'TMZ'
 __author__ = 'stacked <stacked.xbmc@gmail.com>'
 __url__ = 'http://code.google.com/p/plugin/'
 __date__ = '12-05-2011'
-__version__ = '2.0.0'
+__version__ = '1.2.0'
 __settings__ = xbmcaddon.Addon( id = 'plugin.video.tmz' )
 
 def open_url( url ):
@@ -33,7 +33,6 @@ def build_main_directory():
 		u = sys.argv[0] + "?mode=0&name=" + urllib.quote_plus( name ) + "&url=" + urllib.quote_plus( url )
 		ok = xbmcplugin.addDirectoryItem( handle = int( sys.argv[1] ), url = u, listitem = listitem, isFolder = True )
 	xbmcplugin.addSortMethod( handle = int(sys.argv[1]), sortMethod = xbmcplugin.SORT_METHOD_NONE )
-	xbmc.executebuiltin("Container.SetViewMode(501)")
 	xbmcplugin.endOfDirectory( int( sys.argv[1] ) )
 
 def build_video_directory( name, url ):
@@ -55,7 +54,7 @@ def build_video_directory( name, url ):
 	xbmcplugin.endOfDirectory( int( sys.argv[1] ) )
 		
 def play_video( name, url, thumb, studio ):
-	item = xbmcgui.ListItem( label = name, iconImage = "DefaultVideo.png", thumbnailImage = thumb )
+	item = xbmcgui.ListItem( label = name, iconImage = "DefaultVideo.png", thumbnailImage = xbmc.getInfoImage( "ListItem.Thumb" ) )
 	item.setInfo( type="Video", infoLabels={ "Title": name , "Director": "TMZ", "Studio": studio } )
 	xbmc.Player( xbmc.PLAYER_CORE_DVDPLAYER ).play( url, item )
 
