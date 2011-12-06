@@ -33,7 +33,6 @@ def build_main_directory():
 		u = sys.argv[0] + "?mode=0&name=" + urllib.quote_plus( name ) + "&url=" + urllib.quote_plus( url )
 		ok = xbmcplugin.addDirectoryItem( handle = int( sys.argv[1] ), url = u, listitem = listitem, isFolder = True )
 	xbmcplugin.addSortMethod( handle = int(sys.argv[1]), sortMethod = xbmcplugin.SORT_METHOD_NONE )
-	xbmc.executebuiltin("Container.SetViewMode(501)")
 	xbmcplugin.endOfDirectory( int( sys.argv[1] ) )
 
 def build_video_directory( name, url ):
