@@ -45,7 +45,7 @@ def build_video_directory( name ):
 		title = clean(epsdata[0][0].replace("\\", ""))
 		duration = epsdata[0][1].replace("\\", "")
 		url = epsdata[0][3].replace("\\", "")
-		thumb = epsdata[0][5].replace("\\", "")
+		thumb = epsdata[0][5].replace("\\", "") + '/width/490/height/266/type/3'
 		if url.find('http://cdnbakmi.kaltura.com') == -1:
 			listitem = xbmcgui.ListItem( label = title, iconImage = thumb, thumbnailImage = thumb )
 			listitem.setInfo( type="Video", infoLabels={ "Title": title, "Director": "TMZ", "Studio": name, "Duration": str(datetime.timedelta(seconds=int(duration))) } )
