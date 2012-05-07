@@ -3,6 +3,7 @@
 - Updated addon to support recent TMZ.com changes.
 - Added higher resolution thumbnails.
 - Added a User-Agent string.
+- Added language tags to addon.xml
 
 [B]Version 2.0.0[/B]
 
